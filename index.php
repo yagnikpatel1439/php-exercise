@@ -1,3 +1,38 @@
+<?php
+
+$DB_HOST = "127.0.0.1";
+$DB_USERNAME = "root";
+$DB_PASSWORD = "root";
+$DB_NAME = "mini_project";
+$DB_PORT = "3306";
+
+$connection = mysqli_connect($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME, $DB_PORT);
+
+if (isset($_POST['submit'])) {
+
+    print_r($_POST);
+    // $user_id = $_GET['user_id'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $gender = $_POST['gender'];
+    $nationality = $_POST['nationality'];
+    $passenger_no = $_POST['passenger_no'];
+    $diet_pref = $_POST['diet_pref'];
+
+    
+    $query = "INSERT INTO users (first_name, last_name, gender, nationality, passenger_no, diet_pref) VALUES ('{$first_name}', '{$last_name}', '{$gender}', '{$nationality}', '{$passenger_no}', '{$diet_pref}')" ;
+    $create_user_query = mysqli_query($connection, $query);
+
+    if (!$create_user_query) {
+        die('QUERY FAILED'. mysqli_error($connection));
+    }
+
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +56,7 @@
         <br>
         <div>
             <label for="salutation"> Select yout salutation: </label>
-            <select name="salutation" id="" value="mr">
+            <select name="salutation" id="salutation">
                 <option value="mr">Mr</option>
                 <option value="mrs">Mrs</option>
                 <option value="none">None</option>
@@ -36,19 +71,18 @@
         <div>
             <label for="nationality">Are you an Indian?</label>
             <input type="radio" name="nationality" value="true">True 
-            <input type="radio" name="nationality" >False 
+            <input type="radio" name="nationality" value="false">False 
         </div>
         <br>
         <div>
-            <label for="gender" id="">Define your gender:</label>
+            <label for="gender">Define your gender:</label>
             <input type="radio" name="gender" value="male">Male
             <input type="radio" name="gender" value="female">Female
         </div>
         <br>
         <div>
             <label for="diet">Your diet preference: </label>
-            <select name="diet_pref" value="3">
-                <option value="" selected disabled hidden>Choose here</option>
+            <select name="diet_pref">
                 <option value="vegan">Vegan</option>
                 <option value="Lacto Vegetarian(includes dairy)">Lacto Vegetarian(includes dairy)</option>
                 <option value="Ovo Vegetarian(includes eggs)">Ovo Vegetarian(includes eggs)</option>
