@@ -93,5 +93,7 @@ if (isset($_POST['submit'])) {
         <input type="submit" value="submit" name="submit">
     </div>
     </form>
+    <br>
+    <a href="data_dump.php">Data</a>
 </body>
 </html>
