@@ -7,9 +7,10 @@
     <title>Display Info</title>
 </head>
 <body>
-    Hi <?php echo $_POST['salutation'], $_POST['first_name'], $_POST['last_name']  ?>.
+    Hi <?php echo $_POST['salutation'] === 'none' ? ($_POST['first_name'] . ' ' . $_POST['last_name']) : ($_POST['salutation'] . ' '. $_POST['first_name'] .' '. $_POST['last_name']);
+            ?>.
 
-    To welcome onboard you've given this info. You're <?php echo $_POST['gender'] ?> and want to eat <?php echo $_POST['diet_pref'] ?>. Also you're accompany with <?php echo $_POST['passenger_no'] ?> more people.
+    To welcome onboard you've given this info. You're <?php echo $_POST['gender'] ?> and want to eat <?php echo $_POST['diet_pref'] ?>. Also you're accompanied with <?php echo $_POST['passenger_no'] ?> more people.
     
     <?php 
         if ($_POST['nationality'] !== 'true') {

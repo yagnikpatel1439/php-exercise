@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <div class="info">
-        <form role= "form" action="" method="post" id="info">
+        <form role= "form" action="info.php" method="post" id="info">
             <div class="form-group">
                 <label for="first_name">Firstname: </label>
                 <input type="text" name="first_name">
